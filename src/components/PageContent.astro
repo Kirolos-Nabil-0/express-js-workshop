@@ -1,0 +1,16 @@
+---
+const { content, githubEditUrl } = Astro.props;
+const title = content.title;
+// const headers = content.astro.headers;
+---
+
+<article id="article" class="content">
+  <section class="main-section">
+    <!-- Navigation for smaller screens -->
+    <nav class="block sm:hidden">
+      <!-- Add navigation elements for smaller screens if needed -->
+    </nav>
+    <!-- Main content slot -->
+    <slot />
+  </section>
+</article>

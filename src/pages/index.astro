@@ -1,0 +1,77 @@
+---
+import { SITE } from "../config";
+import expressIcon from "../images/icons8-express-js-50.png";
+import apiIcon from "../images/icons8-rest-api-96.png";
+import mongoDb from "../images/icons8-mongodb-96.png";
+import authLogin from "../images/icons8-authentication-100.png";
+const navItems = [
+  {
+    title: "Core",
+    description: "Building basic API`S endpoints",
+    url: "/core/introduction",
+    img: apiIcon,
+  },
+  {
+    title: "DataBase with express",
+    description: "Store data",
+    url: "/Database/introduction",
+    img: mongoDb,
+  },
+  {
+    title: "Authentication",
+    description: "Authenticate users",
+    url: "/patterns/introduction",
+    img: authLogin,
+  },
+];
+---
+
+<div class="flex flex-col min-h-screen">
+  <div class="flex-grow">
+    <header
+      class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-700 to-black flex flex-col justify-center items-center"
+    >
+      <div class="p-4">
+        <img src={expressIcon} alt="Astro Design System Logo" />
+      </div>
+      <h1 class="text-white text-4xl font-medium drop-shadow-sm text-center">
+        {SITE.title}
+      </h1>
+      <p class="text-lg mt-4 text-slate-300 text-center">{SITE.description}</p>
+    </header>
+    <nav>
+      <ul
+        class="flex flex-col lg:flex-row lg:flex-wrap gap-4 max-w-5xl mx-auto text-left mt-12"
+      >
+        {
+          navItems.map(({ title, description, url, img }) => (
+            <a
+              href={url}
+              class="flex flex-col bg-white rounded-md hover:-translate-y-1 hover:shadow-lg transition-all flex-1 items-center p-4"
+              style="min-width: 250px;"
+            >
+              <img src={img} alt={title} />
+              <h2 class="text-lg font-medium">{title}</h2>
+              <p class="text-slate-500">{description}</p>
+            </a>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <!-- Footer Section -->
+  <footer class="bg-slate-700 text-white py-8">
+    <div class="max-w-5xl mx-auto flex justify-center items-center">
+      <p>
+        &copy; {new Date().getFullYear()}
+        {SITE.title}. All rights reserved for the author : Kirolos nabil Mounir
+        .
+      </p>
+    </div>
+  </footer>
+</div>
+<style>
+  .flex-grow {
+    flex-grow: 1;
+  }
+</style>
